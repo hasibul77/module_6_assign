@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Page</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="container">
+      <h1>My Website</h1>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="banner">
+    <h2>Welcome to My Website</h2>
+  </div>
+</header>
+
+<section class="cards">
+  <div class="container">
+    <div class="card">
+      <div class="card-content" id="ageCard">
+        <h3 id="ageMessage"></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const ageInput = document.createElement('input');
+    ageInput.setAttribute('type', 'number');
+    ageInput.setAttribute('placeholder', 'Enter your age');
+    ageInput.setAttribute('id', 'ageInput');
+    ageInput.setAttribute('min', '0');
+    
+    const cardContent = document.getElementById('ageCard');
+    cardContent.appendChild(ageInput);
+  
+    ageInput.addEventListener('change', function() {
+      const age = parseInt(ageInput.value);
+  
+      if (age >= 18) {
+        document.getElementById('ageMessage').textContent = "You are an adult.";
+      } else {
+        document.getElementById('ageMessage').textContent = "You are a child.";
+      }
+    });
+  });
+</script>
+</body>
+</html>
